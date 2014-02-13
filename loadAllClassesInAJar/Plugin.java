@@ -27,7 +27,8 @@ public static void main(String[] args) throws Exception {
             }
         }
         Class cls = Class.forName("HelloWorld", true, clazzLoader);
-        //forname also initializes the class
+        //forname also initializes the class if the middle option is true and it will not be initialised if it is false.
+        //if false it will only check if class is loaded already 
     }
 
     
