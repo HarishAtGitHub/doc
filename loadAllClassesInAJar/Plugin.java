@@ -5,13 +5,14 @@ import java.net.URLClassLoader;
 import java.net.URL;
 import java.util.Enumeration;
 import java.lang.ClassLoader;
-public class Plugin extends ClassLoader {
+import java.lang.reflect.Method;
+public class Plugin {
 public static void main(String[] args) throws Exception {
          
         File file = new File(System.getProperty("user.home") + "/HelloWorld.jar");
          
         URLClassLoader clazzLoader = URLClassLoader.newInstance(new URL[]{file.toURI().toURL()});
-         
+        String className = null ;
         JarFile jarFile = new JarFile(file);
         Enumeration<JarEntry> entries = jarFile.entries();
          
@@ -21,16 +22,35 @@ public static void main(String[] args) throws Exception {
                 try {
                     Class c = clazzLoader.loadClass(element.getName().replaceAll(".class", "").replaceAll("/", "."));
                     //c.newInstance(); // this proves that class is loaded
+                    className = c.getName();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
-        Class cls = Class.forName("HelloWorld", true, clazzLoader);
-        //forname also initializes the class if the middle option is true and it will not be initialised if it is false.
-        //if false it will only check if class is loaded already 
+        
+        //Check if class was loaded 
+        
+        //check 1 : throws  ClassNotFoundException exception if class not found 
+        try {
+            Class cls = Class.forName(className, false, clazzLoader);
+            System.out.println("Class " + cls.getName() +" found in check 1");
+        }
+        catch (ClassNotFoundException e) {
+        	System.out.println("Class not found");
+        }
+        
+        // check 2 : use reflection
+        Method m = ClassLoader.class.getDeclaredMethod("findLoadedClass",  new Class[]{String.class});
+        m.setAccessible(true);
+        Class<?> clazz = (Class<?>) m.invoke( clazzLoader , new Object[]{className});
+        if ( clazz == null ){
+        	System.out.println("There is no such class ");
+        }
+        else {
+        	System.out.println("Class " + clazz.getName() + " found in check 2");
+        }
     }
 
     
 }
-
