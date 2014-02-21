@@ -1,7 +1,6 @@
 try 
-    javac Prog.java
-    python compile.py
 
+    
     $ python compile.py 
 
     or even
@@ -14,4 +13,6 @@ try
          location: class Prog
       1 error
 
+
+Refer question I opened in stackoverflow : http://stackoverflow.com/questions/21941819/python-allows-me-to-compile-bytecode-that-contains-an-undefined-variable-while
 
