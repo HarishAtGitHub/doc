@@ -1,1 +1,61 @@
-I am readme for helloworld
+steps :
+=======
+
+1) Install in a custom path
+    mkdir -p /tmp/try/lib/python
+    export PYTHONPATH=$PYTHONPATH:/tmp/try
+    export PYTHONPATH=$PYTHONPATH:/tmp/try/lib/python
+
+    python setup.py install --home=/tmp/try
+
+
+Now check if its installed by
+
+
+>>> from helloworldpkg import greet
+>>> h = greet.Hello().sayInenglish()
+'hello'
+
+The egg file for helloworldpkg lies inside /tmp/try/lib/python
+Note if you try in new terminal the import will not work because the export has not been done globally.
+so you can add the python path to /etc/profile and source it using source command
+
+It seems there is not direct uninstall option in setup.py . It makes sense not to have it .
+easy way to manually remove is http://stackoverflow.com/questions/1550226/python-setup-py-uninstall
+
+
+2) Install in python dist-packages - (because u dont need that to be inside a custom package)
+do
+
+    python setup.py install 
+    
+    to unsinstall is to remove that egg file from dist-packages (/usr/local/lib/python2.7/dist-packages_
+3) Install in dev mode (which is a combination of 1 and 2) don't put egg inside 
+dist-packages(/usr/local/lib/python2.7/dist-packages/usr/local/lib/python2.7/dist-packages) but the only link to the source
+folder should be 
+inside dist-packages(/usr/local/lib/python2.7/dist-packages)
+
+The link file added in the dist-packages(/usr/local/lib/python2.7/dist-packages/usr/local/lib/python2.7/dist-packages) 
+will be something like helloworld.egg-link 
+and this will have pointer to our location were we have the source
+In short it is like building the package in same location and adding it to PYTHONPATH .
+
+to have this
+do 
+    python setup.py develop
+    
+what is the advantage ?
+  we can just modify the python files directly and see the effect without taking the pain to put it
+  inside dist-packages or adding CUSTOM path to PYTHONPATH
+  
+  
+    
+
+Now People at openstack use pbr instead of setup tools directly :
+refer: http://docs.openstack.org/developer/pbr/
+
+
+
+
+
+
