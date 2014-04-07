@@ -16,4 +16,10 @@ Now check if its installed by
 'hello'
 
 
+Note if you try in new terminal the import will not work because the export has not been done globally.
+so you can add the python path to /etc/profile and source it using source command
+
+
+
+
 
