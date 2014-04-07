@@ -54,6 +54,9 @@ what is the advantage ?
 Now People at openstack use pbr instead of setup tools directly :
 refer: http://docs.openstack.org/developer/pbr/
 
+to remove package installed using develop 
+-> remove the package from the .egg-link file in dist-packages 
+-> remove the entry if any from easy-install.pth
 
 
 
