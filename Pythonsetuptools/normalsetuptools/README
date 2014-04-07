@@ -1,1 +1,19 @@
-I am readme for helloworld
+steps :
+=======
+
+    mkdir -p /tmp/try/lib/python
+    export PYTHONPATH=$PYTHONPATH:/tmp/try
+    export PYTHONPATH=$PYTHONPATH:/tmp/try/lib/python
+
+    python setup.py install --home=/tmp/try
+
+
+Now check if its installed by
+
+
+>>> from helloworldpkg import greet
+>>> h = greet.Hello().sayInenglish()
+'hello'
+
+
+
