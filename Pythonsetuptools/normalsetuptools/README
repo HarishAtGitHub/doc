@@ -59,6 +59,6 @@ to remove package installed using develop
 -> remove the entry if any from easy-install.pth
 
 
-
+Or do pip uninstall nameofpakcage
 
 
