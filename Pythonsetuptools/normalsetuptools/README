@@ -61,4 +61,8 @@ to remove package installed using develop
 
 Or do pip uninstall nameofpakcage
 
+here do 
+
+sudo pip uninstall helloworld
+
 
