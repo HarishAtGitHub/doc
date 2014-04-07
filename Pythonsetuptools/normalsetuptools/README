@@ -19,6 +19,11 @@ Now check if its installed by
 Note if you try in new terminal the import will not work because the export has not been done globally.
 so you can add the python path to /etc/profile and source it using source command
 
+It seems there is not direct uninstall option in setup.py . It makes sense not to have it .
+easy way to manually remove is http://stackoverflow.com/questions/1550226/python-setup-py-uninstall
+
+
+
 
 
 
