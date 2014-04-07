@@ -31,18 +31,24 @@ do
     
     to unsinstall is to remove that egg file from dist-packages (/usr/local/lib/python2.7/dist-packages_
 3) Install in dev mode (which is a combination of 1 and 2) don't put egg inside 
-dist-packages(/usr/local/lib/python2.7/dist-packages/usr/local/lib/python2.7/dist-packages) but the link should be 
+dist-packages(/usr/local/lib/python2.7/dist-packages/usr/local/lib/python2.7/dist-packages) but the only link to the source
+folder should be 
 inside dist-packages(/usr/local/lib/python2.7/dist-packages)
 
-so this keeps the files in the same directory as the place where we built the package (that is the place where setup.py 
-was there)
-but there is a link file added in the dist-packages(/usr/local/lib/python2.7/dist-packages/usr/local/lib/python2.7/dist-packages) 
-called helloworld.egg-link 
-and this will have pointer to our location 
+The link file added in the dist-packages(/usr/local/lib/python2.7/dist-packages/usr/local/lib/python2.7/dist-packages) 
+will be something like helloworld.egg-link 
+and this will have pointer to our location were we have the source
+In short it is like building the package in same location and adding it to PYTHONPATH .
 
-
+to have this
 do 
     python setup.py develop
+    
+what is the advantage ?
+  we can just modify the python files directly and see the effect withouT taking the pain to put it
+  inside dist-packages or adding CUSTOM path to PYTHONPATH
+  
+  
     
 
 
