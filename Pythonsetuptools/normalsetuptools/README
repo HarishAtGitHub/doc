@@ -65,4 +65,6 @@ here do
 
 sudo pip uninstall helloworld
 
+(the above command may not work for develop packages as it is virtual egg)
+
 
