@@ -1,6 +1,7 @@
 steps :
 =======
 
+1) Install in a custom path
     mkdir -p /tmp/try/lib/python
     export PYTHONPATH=$PYTHONPATH:/tmp/try
     export PYTHONPATH=$PYTHONPATH:/tmp/try/lib/python
@@ -15,12 +16,25 @@ Now check if its installed by
 >>> h = greet.Hello().sayInenglish()
 'hello'
 
-
+The egg file for helloworldpkg lies inside /tmp/try/lib/python
 Note if you try in new terminal the import will not work because the export has not been done globally.
 so you can add the python path to /etc/profile and source it using source command
 
 It seems there is not direct uninstall option in setup.py . It makes sense not to have it .
 easy way to manually remove is http://stackoverflow.com/questions/1550226/python-setup-py-uninstall
+
+
+2) Install in python site-packages - (because u dont need that to be inside a custom package)
+do
+
+    python setup.py install 
+    
+    to unsinstall is to remove that egg file from dist-packages (/usr/local/lib/python2.7/dist-packages_
+3) Install in dev mode (which is a combination of 1 and 2) don't put egg inside 
+dist-packages(/usr/local/lib/python2.7/dist-packages/usr/local/lib/python2.7/dist-packages) ( but the link should be 
+inside dist-packages(/usr/local/lib/python2.7/dist-packages)
+
+
 
 
 
