@@ -51,8 +51,8 @@ what is the advantage ?
   
     
 
-
-
+Now People at openstack use pbr instead of setup tools directly :
+refer: http://docs.openstack.org/developer/pbr/
 
 
 
