@@ -24,7 +24,7 @@ It seems there is not direct uninstall option in setup.py . It makes sense not t
 easy way to manually remove is http://stackoverflow.com/questions/1550226/python-setup-py-uninstall
 
 
-2) Install in python site-packages - (because u dont need that to be inside a custom package)
+2) Install in python dist-packages - (because u dont need that to be inside a custom package)
 do
 
     python setup.py install 
@@ -45,7 +45,7 @@ do
     python setup.py develop
     
 what is the advantage ?
-  we can just modify the python files directly and see the effect withouT taking the pain to put it
+  we can just modify the python files directly and see the effect without taking the pain to put it
   inside dist-packages or adding CUSTOM path to PYTHONPATH
   
   
