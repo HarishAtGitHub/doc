@@ -1,6 +1,9 @@
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 
-public class SimpleLinkedList<ContainerType>{
+
+public class SimpleLinkedList<ContainerType> implements Iterable<ContainerType>{
 	
 	private int size = 0;
 	
@@ -69,6 +72,44 @@ public class SimpleLinkedList<ContainerType>{
 		}
 		
 		return false;
+	}
+
+
+	public Iterator<ContainerType> iterator() {
+		return new SimpleLinkedListIterator();
+	}
+	
+	private class SimpleLinkedListIterator implements Iterator<ContainerType> {
+        private int currentLocation = 0;
+        private Node recentNode = start;
+		@Override
+		public boolean hasNext() {
+			return currentLocation != size;
+		}
+
+		@Override
+		public ContainerType next() {
+			//return null;
+			if (!hasNext())
+                throw new NoSuchElementException();
+			if (currentLocation == 0) {
+				currentLocation++;
+				return recentNode.item;
+				
+			}
+			while (recentNode.next != null) {
+				recentNode = recentNode.next;
+				currentLocation++;
+				return recentNode.item ;
+			}
+			return null;
+		}
+
+		@Override
+		public void remove() {
+			
+		}
+		
 	}
 
 	
