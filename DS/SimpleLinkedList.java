@@ -1,6 +1,6 @@
 
 
-public class SimpleLinkedList{
+public class SimpleLinkedList<ContainerType>{
 	
 	private int size = 0;
 	
@@ -11,9 +11,9 @@ public class SimpleLinkedList{
 	private class Node {
 		Node priv ;
 		Node next ;
-		Object item ;
+		ContainerType item ;
 		
-		public Node(Object e) {
+		public Node(ContainerType e) {
 			this.next = null;
 			this.priv = null;
 			this.item = e;
@@ -33,13 +33,11 @@ public class SimpleLinkedList{
 	
 	
 	public int size() {
-		// TODO Auto-generated method stub
 		return size;
 	}
 
 	
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
 		if(size == 0) {
 			return true;
 		}
@@ -49,8 +47,7 @@ public class SimpleLinkedList{
 	}
 
 	
-	public boolean add(Object e) {
-		// TODO Auto-generated method stub
+	public boolean add(ContainerType e) {
 		
 		if (size == 0) {
 			//means this is the first node and the node construction will
@@ -77,3 +74,4 @@ public class SimpleLinkedList{
 	
 
 }
+
