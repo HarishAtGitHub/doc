@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+{% for greeting in greetings %}
+
+{{ greeting.text }}
+
+{% endfor %}
+{% endblock %}
+</body>
+</html>
