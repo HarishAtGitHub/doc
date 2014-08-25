@@ -1,10 +1,10 @@
-README :
-========
+h1. README :
+
 
 
 Content here .
 
-How to configure Postgres for this django app ?
+h2. How to configure Postgres for this django app ?
 
 1. Install PostgreSQL in your system
 
