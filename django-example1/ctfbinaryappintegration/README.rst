@@ -33,27 +33,26 @@ local   <dbname>      <username>                                 md5
 
 9. Now add the  following in the host-monitor/settings.py
 
-<pre>
 
-DATABASES = {
 
-    'default': {
+    DATABASES = {
+
+        'default': {
     
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
         
-        'NAME': <dbname>,
+            'NAME': <dbname>,
         
-        'USER': <username>,
+            'USER': <username>,
         
-        'PASSWORD': <password>,
+            'PASSWORD': <password>,
         
-        'HOST': 'localhost',  
+            'HOST': 'localhost',  
         
-        'PORT': '',   
-        
+            'PORT': '',   
+        }
+    
     }
-    
-}
 
-</pre>
+
 
