@@ -2,3 +2,58 @@ README :
 =========
 
 Content here .
+
+How to configure Postgres for this django app ?
+
+1. Install PostgreSQL in your system
+
+3. Install PostgreSQL database adapter for python
+
+  * sudo pip install psycopg2
+
+4. Change to postgres user using
+
+  * sudo su postgres
+
+5. Create db with name <dbname>
+
+  * createdb <dbname>
+  
+6. Create a dedictaed user <username> and give a password for it
+
+  * createuser -P <username>
+  
+7. Give the above created user an access to this db created in step 3 by adding the entry in 
+/etc/postgresql/<version>/main/pg_hba.conf
+local   <dbname>      <username>                                 md5
+
+8. Restart postgres
+
+  * service postgresql restart
+
+9. Now add the  following in the host-monitor/settings.py
+
+<pre>
+
+DATABASES = {
+
+    'default': {
+    
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        
+        'NAME': <dbname>,
+        
+        'USER': <username>,
+        
+        'PASSWORD': <password>,
+        
+        'HOST': 'localhost',  
+        
+        'PORT': '',   
+        
+    }
+    
+}
+
+</pre>
+
